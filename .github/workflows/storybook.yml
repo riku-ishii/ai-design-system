@@ -28,13 +28,13 @@ jobs:
         run: bun install
 
       - name: Build tokens
-        run: bun --cwd packages/tokens run build
+        run: cd packages/tokens && bun run build
 
       - name: Build components
-        run: bun --cwd packages/components run build
+        run: cd packages/components && bun run build
 
       - name: Build Storybook
-        run: bun --cwd apps/storybook run build
+        run: cd apps/storybook && bun run build
 
       - uses: actions/upload-pages-artifact@v3
         with:

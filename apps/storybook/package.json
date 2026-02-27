@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "dev": "bunx storybook dev -p 6006",
+    "build": "bunx storybook build",
     "preview": "serve storybook-static"
   },
   "dependencies": {
@@ -15,18 +15,19 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.3",
+    "@chromatic-com/storybook": "3",
     "@storybook/addon-docs": "^8.5.3",
-    "@storybook/addon-essentials": "^8.5.3",
-    "@storybook/addon-interactions": "^8.5.3",
-    "@storybook/addon-themes": "^8.5.3",
-    "@storybook/blocks": "^8.5.3",
-    "@storybook/react": "^8.5.3",
-    "@storybook/react-vite": "^8.5.3",
-    "@storybook/test": "^8.5.3",
+    "@storybook/addon-essentials": "8",
+    "@storybook/addon-interactions": "8",
+    "@storybook/addon-themes": "8",
+    "@storybook/blocks": "8",
+    "@storybook/react": "8",
+    "@storybook/react-vite": "8",
+    "@storybook/test": "8",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "storybook": "8",
     "typescript": "*",
-    "vite": "^6.1.0"
+    "vite": "5"
   }
 }

@@ -55,8 +55,8 @@ export function Input({
             "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-default)] focus:ring-offset-0 focus:border-transparent",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             error && "border-[var(--color-error-default)] focus:ring-[var(--color-error-default)]",
-            leftAddon && "pl-10",
-            rightAddon && "pr-10",
+            !!leftAddon && "pl-10",
+            !!rightAddon && "pr-10",
             className
           )}
           aria-invalid={!!error}

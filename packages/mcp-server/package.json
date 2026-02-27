@@ -1,0 +1,24 @@
+{
+  "name": "@ai-ds/mcp-server",
+  "version": "0.0.1",
+  "private": false,
+  "type": "module",
+  "bin": {
+    "ai-ds-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-ds/tokens": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "typescript": "*"
+  }
+}

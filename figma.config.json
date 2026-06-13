@@ -1,0 +1,9 @@
+{
+  "codeConnect": {
+    "include": ["figma/**/*.figma.tsx"],
+    "parser": "react",
+    "importPaths": {
+      "@ai-ds/components": "packages/components/src"
+    }
+  }
+}

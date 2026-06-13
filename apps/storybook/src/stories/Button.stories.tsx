@@ -12,6 +12,10 @@ const meta = {
           "Primary interactive element for triggering actions. Use `variant=\"ai\"` for AI-powered actions to visually distinguish them from regular actions.",
       },
     },
+    design: {
+      type: "figma",
+      url: "https://www.figma.com/design/REPLACE_WITH_FILE_ID/AI-Design-System?node-id=REPLACE_WITH_NODE_ID",
+    },
   },
   tags: ["autodocs"],
   argTypes: {

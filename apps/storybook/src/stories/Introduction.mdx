@@ -1,0 +1,103 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Foundation/Introduction" />
+
+# AI Design System
+
+AIネイティブなプロダクト開発のための統合デザインシステムです。
+デザイントークン、Reactコンポーネント、MCPサーバーの3層構造で、AIツールがデザインシステムの知識を直接参照できます。
+
+---
+
+## デザイン原則
+
+### 1. AI-First
+AIが介在する操作は、通常の操作と明確に区別します。
+`variant="ai"` を使ったパープルアクセント（`#9333ea`）が、AIによるアクションを視覚的に識別する統一された言語です。
+
+```tsx
+<Button variant="ai">Generate with AI</Button>
+<Badge variant="ai">AI generated</Badge>
+<Card variant="ai">AI response content</Card>
+```
+
+### 2. Accessible by Default
+すべてのコンポーネントは WCAG 2.1 AA 基準を満たします。
+- `aria-*` 属性による適切なセマンティクス
+- キーボードナビゲーション（Tab / Enter / Escape）
+- スクリーンリーダー向けの `sr-only` ラベル
+- `focus-visible` によるフォーカスリング
+
+### 3. Composable
+小さなプリミティブを組み合わせて複雑なUIを構築します。
+`Card` + `CardHeader` + `CardBody` + `CardFooter`、
+`Modal` + `ModalHeader` + `ModalBody` + `ModalFooter` のように、
+合成パターンで柔軟な構造を実現します。
+
+### 4. Token-Driven
+ハードコードされた値はありません。すべての色・間隔・タイポグラフィは
+CSS カスタムプロパティを通じてトークンから来ます。
+
+```css
+/* ✅ */
+color: var(--color-primary-default);
+
+/* ❌ */
+color: #2563eb;
+```
+
+---
+
+## パッケージ構成
+
+| パッケージ | 内容 |
+|---|---|
+| `@ai-ds/tokens` | デザイントークン（CSS変数・TypeScript） |
+| `@ai-ds/components` | Reactコンポーネント |
+| `@ai-ds/mcp-server` | AI ツール向け MCP サーバー |
+
+---
+
+## クイックスタート
+
+```bash
+bun add @ai-ds/tokens @ai-ds/components
+```
+
+```tsx
+// 1. トークンCSSをインポート
+import "@ai-ds/tokens/dist/tokens.css";
+
+// 2. コンポーネントを使う
+import { Button, Badge, Card } from "@ai-ds/components";
+
+export function MyApp() {
+  return (
+    <Card variant="ai">
+      <CardBody>
+        <Badge variant="ai">AI generated</Badge>
+        <Button variant="ai">Accept suggestion</Button>
+      </CardBody>
+    </Card>
+  );
+}
+```
+
+---
+
+## MCP 連携
+
+Claude Code や Cursor からデザインシステムの情報を直接参照できます。
+
+```json
+{
+  "mcpServers": {
+    "ai-design-system": {
+      "command": "bun",
+      "args": ["run", "/path/to/packages/mcp-server/src/index.ts"]
+    }
+  }
+}
+```
+
+利用可能なツール: `list_components` · `get_component` · `get_tokens` · `get_token_value`
